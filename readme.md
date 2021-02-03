@@ -15,3 +15,8 @@ If you want to publish your components, you only just run npm publish and the co
  -  Choose the type of project
  -  Choose styles type for you project.
  -  Go to your `src` folder and start creating your own components.
+
+# How to use a component after is available on npm registry
+
+You can use your component in any other project that use any other framework like React, Anagular, Vue, a simple HTML page, Nodejs.
+
