@@ -20,3 +20,40 @@ If you want to publish your components, you only just run npm publish and the co
 
 You can use your component in any other project that use any other framework like React, Anagular, Vue, a simple HTML page, Nodejs.
 
+First install dependency in your project `npm install ventoji-stencil-comp`. 
+
+For react projects created with `create_react_app` make your you add `defineCustomElements(window);` in index.js below the servirWorker option. Then you can just use them as usual adding like an html tag `<uc-stock-price></uc-stock-price>` in your render function of the component you will use it.
+
+For angular projects make sure your configure `app.module.ts` as is shown below:
+
+`import { BrowserModule } from '@angular/platform-browser';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+})
+export class AppModule { }
+`
+Then you can use them the same way as React explanation.
+
+# Manual testing
+
+In a `html` file make your you have the `dist` folder or whaterver name you provided after generation, available when you run `npmm run build` to generate the components you want to share or reuse in other applications. Then you can include in the following way ` <script type="module" src="static/dist/esm/web-components-stencil.js"></script>` assuming you have stored in that location.
+
+In node application make you you have the static route configured `app.use('/static',express.static('public'));` in the express router.
+
+Then you use them in the same way as explained for angular and react.
+
+
